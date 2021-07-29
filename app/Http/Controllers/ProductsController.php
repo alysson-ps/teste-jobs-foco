@@ -44,12 +44,17 @@ class ProductsController extends Controller
 
             array_push($output_array, array(
                 "product" => $out->name,
-                "price_total" => number_format((float)$priceMultiple, 2, ".", ""),
+                "priceTotal" => number_format((float)$priceMultiple, 2, ".", ""),
+                "taxTotal" => number_format((float)$taxReal * $product['quantity'], 2, ".", ""),
             ));
 
-            $totalPrice += $out->price * $product['quantity'];
+            $totalPrice += $priceMultiple;
             $totalTax += $taxReal;
         }
-        return response()->json(["products" => $output_array, "totalPrice" => number_format((float)$totalPrice, 2, ".", ""), "totalTax" => number_format((float)$totalTax, 2, ".", "")]);
+        return response()->json([
+            "products" => $output_array,
+            "totalPrice" => number_format((float)$totalPrice, 2, ".", ""),
+            "totalTax" => number_format((float)$totalTax, 2, ".", "")
+        ]);
     }
 }
