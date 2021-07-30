@@ -64,11 +64,11 @@ URL => http://localhost:8000/api/product/query
 	"products":[
 		{
 			"name": "arroz",
-			"quantity": 4
+			"quantity": 1
 		},
 		{
 			"name": "feijao",
-			"quantity": 3
+			"quantity": 1
 		}
 	]
 }
@@ -83,16 +83,16 @@ Response exemple
   "products": [
     {
       "product": "arroz",
-      "priceTotal": "424.00",
-      "taxTotal": "24.00"
+      "priceTotal": "106.00",
+      "taxTotal": "6.00"
     },
     {
       "product": "feijao",
-      "priceTotal": "11.45",
-      "taxTotal": "0.65"
+      "priceTotal": "3.82",
+      "taxTotal": "0.22"
     }
   ],
-  "totalPrice": "435.45",
+  "totalPrice": "109.82",
   "totalTax": "6.22"
 }
 ```
