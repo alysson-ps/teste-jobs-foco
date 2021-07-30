@@ -41,15 +41,16 @@ class ProductsController extends Controller
             $taxReal = $out->price * $taxPercentage;
 
             $priceMultiple = ($out->price + $taxReal) * $product['quantity'];
+            $taxMultiple = $taxReal * $product['quantity'];
 
             array_push($output_array, array(
                 "product" => $out->name,
                 "priceTotal" => number_format((float)$priceMultiple, 2, ".", ""),
-                "taxTotal" => number_format((float)$taxReal * $product['quantity'], 2, ".", ""),
+                "taxTotal" => number_format((float)$taxMultiple, 2, ".", ""),
             ));
 
             $totalPrice += $priceMultiple;
-            $totalTax += $taxReal;
+            $totalTax += $taxMultiple;
         }
         return response()->json([
             "products" => $output_array,
