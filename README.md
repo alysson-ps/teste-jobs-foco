@@ -26,6 +26,10 @@ composer run start
 
 <span style="color:#75ba24">POST</span> Register products in the system
 
+```
+URL => http://localhost:8000/api/product/create
+```
+
 ```json
 {
   "name": "Arroz",
@@ -52,7 +56,9 @@ Response exemple
 <hr style="margin: 30px 0"></hr>
 
 <span style="color:#75ba24">POST</span> Check product prices by quantity
-
+```
+URL => http://localhost:8000/api/product/query
+```
 ```json
 {
 	"products":[
